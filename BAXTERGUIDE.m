@@ -22,7 +22,7 @@ function varargout = BAXTERGUIDE(varargin)
 
 % Edit the above text to modify the response to help BAXTERGUIDE
 
-% Last Modified by GUIDE v2.5 03-Dec-2018 03:50:47
+% Last Modified by GUIDE v2.5 03-Dec-2018 16:32:46
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -301,20 +301,72 @@ end
 
 % --- Executes on selection change in popupmenu2.
 function popupmenu2_Callback(hObject, eventdata, handles)
+global simOut 
 switch get(handles.popupmenu2,'Value')
     case 1
-    P.Option = 0;
+        Time = simOut.DATA(:,1);
+        Dat1 = simOut.DATA(:,2);
+        Dat2 = simOut.DATA(:,3);
+        Dat3 = simOut.DATA(:,4);
+        Dat4 = simOut.DATA(:,5);
+        Dat5 = simOut.DATA(:,6);
+        Dat6 = simOut.DATA(:,7);
+        Dat7 = simOut.DATA(:,8);
+        plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6,Time,Dat7);
     case 2
-    P.Option = 1;
+        Time = simOut.DATA1(:,1);
+        Dat1 = simOut.DATA1(:,2);
+        Dat2 = simOut.DATA1(:,3);
+        Dat3 = simOut.DATA1(:,4);
+        Dat4 = simOut.DATA1(:,5);
+        Dat5 = simOut.DATA1(:,6);
+        Dat6 = simOut.DATA1(:,7);
+        Dat7 = simOut.DATA1(:,8);
+        plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6,Time,Dat7); 
     case 3
-    P.Option = 2;    
-    case 4
-    P.Option = 3;
+        Time = simOut.DATA2(:,1);
+        Dat1 = simOut.DATA2(:,2);
+        Dat2 = simOut.DATA2(:,3);
+        Dat3 = simOut.DATA2(:,4);
+        Dat4 = simOut.DATA2(:,5);
+        Dat5 = simOut.DATA2(:,6);
+        Dat6 = simOut.DATA2(:,7);
+        Dat7 = simOut.DATA2(:,8);
+        plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6,Time,Dat7);  
+    case 3
+        %cla reset;
+        %Dat = evalin('base','DATA3');
+        Time = simOut.DATA3(:,1);
+        Dat1 = simOut.DATA3(:,2);
+        Dat2 = simOut.DATA3(:,3);
+        Dat3 = simOut.DATA3(:,4);
+        Dat4 = simOut.DATA3(:,5);
+        Dat5 = simOut.DATA3(:,6);
+        Dat6 = simOut.DATA3(:,7);
+        plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6);     
+   case 4
+        Time = simOut.DATA3(:,1);
+        Dat1 = simOut.DATA3(:,2);
+        Dat2 = simOut.DATA3(:,3);
+        Dat3 = simOut.DATA3(:,4);
+        Dat4 = simOut.DATA3(:,5);
+        Dat5 = simOut.DATA3(:,6);
+        Dat6 = simOut.DATA3(:,7);
+        plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6); 
     case 5
-    P.Option = 4;   
+
+        Time = simOut.DATA4(:,1);
+        Dat1 = simOut.DATA4(:,2);
+        Dat2 = simOut.DATA4(:,3);
+        Dat3 = simOut.DATA4(:,4);
+        Dat4 = simOut.DATA4(:,5);
+        Dat5 = simOut.DATA4(:,6);
+        Dat6 = simOut.DATA4(:,7);
+        Dat7 = simOut.DATA4(:,8);
+        plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6,Time,Dat7); 
+     
     otherwise
 end
-set(handles.popupmenu2,'UserData',P);
 
 % --- Executes during object creation, after setting all properties.
 function popupmenu2_CreateFcn(hObject, eventdata, handles)
@@ -404,69 +456,143 @@ function pushbutton4_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 P = get(handles.popupmenu2,'UserData');
+global simOut 
 switch P.Option
     case 0
-        cla reset;
-        while(1)
-        
-                
-        Dat = evalin('base','DATA');
-        Time = Dat(:,1);
-        Dat1 = Dat(:,2);
-        Dat2 = Dat(:,3);
-        Dat3 = Dat(:,4);
-        Dat4 = Dat(:,5);
-        Dat5 = Dat(:,6);
-        Dat6 = Dat(:,7);
-        Dat7 = Dat(:,8);
+        %cla reset;     
+        %Dat = evalin('base','DATA');
+        Time = simOut.DATA(:,1);
+        Dat1 = simOut.DATA(:,2);
+        Dat2 = simOut.DATA(:,3);
+        Dat3 = simOut.DATA(:,4);
+        Dat4 = simOut.DATA(:,5);
+        Dat5 = simOut.DATA(:,6);
+        Dat6 = simOut.DATA(:,7);
+        Dat7 = simOut.DATA(:,8);
         plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6,Time,Dat7);
-        end
+        
     case 1
-        cla reset;
-                Dat = evalin('base','DATA1');
-        Time = Dat(:,1);
-        Dat1 = Dat(:,2);
-        Dat2 = Dat(:,3);
-        Dat3 = Dat(:,4);
-        Dat4 = Dat(:,5);
-        Dat5 = Dat(:,6);
-        Dat6 = Dat(:,7);
-        Dat7 = Dat(:,8);
+        %cla reset;
+        Dat = evalin('base','DATA1');
+        Time = simOut.DATA1(:,1);
+        Dat1 = simOut.DATA1(:,2);
+        Dat2 = simOut.DATA1(:,3);
+        Dat3 = simOut.DATA1(:,4);
+        Dat4 = simOut.DATA1(:,5);
+        Dat5 = simOut.DATA1(:,6);
+        Dat6 = simOut.DATA1(:,7);
+        Dat7 = simOut.DATA1(:,8);
         plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6,Time,Dat7); 
     case 2
-        cla reset;
-        Dat = evalin('base','DATA2');
-        Time = Dat(:,1);
-        Dat1 = Dat(:,2);
-        Dat2 = Dat(:,3);
-        Dat3 = Dat(:,4);
-        Dat4 = Dat(:,5);
-        Dat5 = Dat(:,6);
-        Dat6 = Dat(:,7);
-        Dat7 = Dat(:,8);
+        %cla reset;
+        %Dat = evalin('base','DATA2');
+        Time = simOut.DATA2(:,1);
+        Dat1 = simOut.DATA2(:,2);
+        Dat2 = simOut.DATA2(:,3);
+        Dat3 = simOut.DATA2(:,4);
+        Dat4 = simOut.DATA2(:,5);
+        Dat5 = simOut.DATA2(:,6);
+        Dat6 = simOut.DATA2(:,7);
+        Dat7 = simOut.DATA2(:,8);
         plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6,Time,Dat7);  
     case 3
-        cla reset;
-        Dat = evalin('base','DATA3');
-        Time = Dat(:,1);
-        Dat1 = Dat(:,2);
-        Dat2 = Dat(:,3);
-        Dat3 = Dat(:,4);
-        Dat4 = Dat(:,5);
-        Dat5 = Dat(:,6);
-        Dat6 = Dat(:,7);
+        %cla reset;
+        %Dat = evalin('base','DATA3');
+        Time = simOut.DATA3(:,1);
+        Dat1 = simOut.DATA3(:,2);
+        Dat2 = simOut.DATA3(:,3);
+        Dat3 = simOut.DATA3(:,4);
+        Dat4 = simOut.DATA3(:,5);
+        Dat5 = simOut.DATA3(:,6);
+        Dat6 = simOut.DATA3(:,7);
         plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6); 
     case 4
-        cla reset;
+        %cla reset;
         Dat = evalin('base','DATA4');
-        Time = Dat(:,1);
-        Dat1 = Dat(:,2);
-        Dat2 = Dat(:,3);
-        Dat3 = Dat(:,4);
-        Dat4 = Dat(:,5);
-        Dat5 = Dat(:,6);
-        Dat6 = Dat(:,7);
-        Dat7 = Dat(:,8);
+        Time = simOut.DATA4(:,1);
+        Dat1 = simOut.DATA4(:,2);
+        Dat2 = simOut.DATA4(:,3);
+        Dat3 = simOut.DATA4(:,4);
+        Dat4 = simOut.DATA4(:,5);
+        Dat5 = simOut.DATA4(:,6);
+        Dat6 = simOut.DATA4(:,7);
+        Dat7 = simOut.DATA4(:,8);
         plot(Time,Dat1,Time,Dat2,Time,Dat3,Time,Dat4,Time,Dat5,Time,Dat6,Time,Dat7); 
     otherwise
+end
+
+
+% --- Executes on button press in pushbutton5.
+function pushbutton5_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+%sim('Ensamblaje2');
+global simOut 
+
+Time=get(handles.times,'String');
+simOut = sim('Ensamblaje2','ReturnWorkspaceOutputs','on','StopTime',Time)
+
+
+
+
+% --- Executes on selection change in popupmenu3.
+function popupmenu3_Callback(hObject, eventdata, handles)
+% hObject    handle to popupmenu3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns popupmenu3 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from popupmenu3
+
+switch get(handles.popupmenu3,'Value')
+    case 1
+        set_param('Ensamblaje2/Constant9','Value','0');
+        set_param('Ensamblaje2/Constant16','Value','1');
+        set_param('Ensamblaje2/Constant13','Value','0');
+    case 2
+        set_param('Ensamblaje2/Constant9','Value','0');
+        set_param('Ensamblaje2/Constant16','Value','0');
+        set_param('Ensamblaje2/Constant13','Value','1');
+    case 3
+        %set_param('Ensamblaje2/Constant9','Value','0');
+        %set_param('Ensamblaje2/Constant16','Value','0');
+        %set_param('Ensamblaje2/Constant13','Value','0');
+    otherwise
+end
+
+
+% --- Executes during object creation, after setting all properties.
+function popupmenu3_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to popupmenu3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function times_Callback(hObject, eventdata, handles)
+% hObject    handle to times (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of times as text
+%        str2double(get(hObject,'String')) returns contents of times as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function times_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to times (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
 end
