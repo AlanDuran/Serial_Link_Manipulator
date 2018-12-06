@@ -12,17 +12,7 @@ end
 
 % create the robot model
 Robot = SerialLink(L);
-Robot.name = 'Robot';
-% starting position
-qz = [0 0 0 0 pi/2 0 0];
-vz = [1 0 .2 1 1 1 1 1];
-% ready position
-qr = [0 2 0 (1/4)*pi -pi 0 0];
-% generate a time vector
-t = [0:0.056:2];
-% computes the joint coordinate trajectory
-q2 = jtraj(qz, qr, t);
-% direct kinematics for each joint co-ordinate
-Tr = Robot.fkine(q2)
-%Robot.plot(qz)
-t = Robot.itorque(qz,vz);
+
+coder.extrinsic('get_param');
+coder.extrinsic('getVariable');
+mdlWks = get_param('Ensamblaje2','ModelWorkspace');

@@ -388,28 +388,28 @@ pid=get(handles.pid,'String');
 S = get(handles.popupmenu1,'UserData');
 switch S.Option
     case 0
-        set_param('Ensamblaje2/Constant','Value',pid);
-        set_param('Ensamblaje2/Constant11','Value',pid);
-        set_param('Ensamblaje2/Constant10','Value',pid);
-        set_param('Ensamblaje2/Constant15','Value',pid);
-        set_param('Ensamblaje2/Constant17','Value',pid);
-        set_param('Ensamblaje2/Constant18','Value',pid);
-        set_param('Ensamblaje2/Constant19','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant11','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant10','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant15','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant17','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant18','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant19','Value',pid);
      %PID=[KP KI KD];
     case 1
-        set_param('Ensamblaje2/Constant','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant','Value',pid);
     case 2
-        set_param('Ensamblaje2/Constant11','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant11','Value',pid);
     case 3
-        set_param('Ensamblaje2/Constant10','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant10','Value',pid);
     case 4
-        set_param('Ensamblaje2/Constant15','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant15','Value',pid);
     case 5
-        set_param('Ensamblaje2/Constant17','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant17','Value',pid);
     case 6
-        set_param('Ensamblaje2/Constant18','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant18','Value',pid);
     case 7
-        set_param('Ensamblaje2/Constant19','Value',pid);
+        set_param('Ensamblaje2/ganancias/Constant19','Value',pid);
     otherwise
 end
 
@@ -431,14 +431,14 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 x=get(handles.xref,'String');
 y=get(handles.yref,'String');
 z=get(handles.zref,'String');
-find_system('Name','Ensamblaje2');
-open_system('Ensamblaje2');
-set_param('Ensamblaje2/Constant6','Value',x);
-set_param('Ensamblaje2/Constant3','Value',y);
-set_param('Ensamblaje2/Constant8','Value',z);
-set_param('Ensamblaje2/Constant9','Value','1');
-set_param(gcs,'SimulationCommand','Start');
-set_param(gcs,'SimulationCommand','Update')
+%find_system('Name','Ensamblaje2');
+%open_system('Ensamblaje2');
+set_param('Ensamblaje2/referencias/Constant6','Value',x);
+set_param('Ensamblaje2/referencias/Constant3','Value',y);
+set_param('Ensamblaje2/referencias/Constant8','Value',z);
+set_param('Ensamblaje2/referencias/Constant9','Value','1');
+%set_param(gcs,'SimulationCommand','Start');
+%set_param(gcs,'SimulationCommand','Update')
 
 
 % --- Executes during object creation, after setting all properties.
@@ -547,17 +547,17 @@ function popupmenu3_Callback(hObject, eventdata, handles)
 
 switch get(handles.popupmenu3,'Value')
     case 1
-        set_param('Ensamblaje2/Constant9','Value','0');
-        set_param('Ensamblaje2/Constant16','Value','1');
-        set_param('Ensamblaje2/Constant13','Value','0');
+        set_param('Ensamblaje2/referencias/Constant9','Value','0');
+        set_param('Ensamblaje2/referencias/Constant16','Value','1');
+        set_param('Ensamblaje2/referencias/Constant13','Value','0');
     case 2
-        set_param('Ensamblaje2/Constant9','Value','0');
-        set_param('Ensamblaje2/Constant16','Value','0');
-        set_param('Ensamblaje2/Constant13','Value','1');
+        set_param('Ensamblaje2/referencias/Constant9','Value','0');
+        set_param('Ensamblaje2/referencias/Constant16','Value','0');
+        set_param('Ensamblaje2/referencias/Constant13','Value','1');
     case 3
-        %set_param('Ensamblaje2/Constant9','Value','0');
-        %set_param('Ensamblaje2/Constant16','Value','0');
-        %set_param('Ensamblaje2/Constant13','Value','0');
+        set_param('Ensamblaje2/referencias/Constant9','Value','0');
+        set_param('Ensamblaje2/referencias/Constant16','Value','0');
+        set_param('Ensamblaje2/referencias/Constant13','Value','0');
     otherwise
 end
 
