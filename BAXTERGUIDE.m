@@ -388,28 +388,28 @@ pid=get(handles.pid,'String');
 S = get(handles.popupmenu1,'UserData');
 switch S.Option
     case 0
-        set_param('Ensamblaje2/ganancias/Constant','Value',pid);
-        set_param('Ensamblaje2/ganancias/Constant11','Value',pid);
-        set_param('Ensamblaje2/ganancias/Constant10','Value',pid);
-        set_param('Ensamblaje2/ganancias/Constant15','Value',pid);
-        set_param('Ensamblaje2/ganancias/Constant17','Value',pid);
-        set_param('Ensamblaje2/ganancias/Constant18','Value',pid);
-        set_param('Ensamblaje2/ganancias/Constant19','Value',pid);
+        set_param('robot_model/ganancias/Constant','Value',pid);
+        set_param('robot_model/ganancias/Constant11','Value',pid);
+        set_param('robot_model/ganancias/Constant10','Value',pid);
+        set_param('robot_model/ganancias/Constant15','Value',pid);
+        set_param('robot_model/ganancias/Constant17','Value',pid);
+        set_param('robot_model/ganancias/Constant18','Value',pid);
+        set_param('robot_model/ganancias/Constant19','Value',pid);
      %PID=[KP KI KD];
     case 1
-        set_param('Ensamblaje2/ganancias/Constant','Value',pid);
+        set_param('robot_model/ganancias/Constant','Value',pid);
     case 2
-        set_param('Ensamblaje2/ganancias/Constant11','Value',pid);
+        set_param('robot_model/ganancias/Constant11','Value',pid);
     case 3
-        set_param('Ensamblaje2/ganancias/Constant10','Value',pid);
+        set_param('robot_model/ganancias/Constant10','Value',pid);
     case 4
-        set_param('Ensamblaje2/ganancias/Constant15','Value',pid);
+        set_param('robot_model/ganancias/Constant15','Value',pid);
     case 5
-        set_param('Ensamblaje2/ganancias/Constant17','Value',pid);
+        set_param('robot_model/ganancias/Constant17','Value',pid);
     case 6
-        set_param('Ensamblaje2/ganancias/Constant18','Value',pid);
+        set_param('robot_model/ganancias/Constant18','Value',pid);
     case 7
-        set_param('Ensamblaje2/ganancias/Constant19','Value',pid);
+        set_param('robot_model/ganancias/Constant19','Value',pid);
     otherwise
 end
 
@@ -420,7 +420,7 @@ end
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
-set_param('Ensamblaje2/Constant9','Value','0');
+set_param('robot_model/Constant9','Value','0');
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -431,12 +431,12 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 x=get(handles.xref,'String');
 y=get(handles.yref,'String');
 z=get(handles.zref,'String');
-%find_system('Name','Ensamblaje2');
-%open_system('Ensamblaje2');
-set_param('Ensamblaje2/referencias/Constant6','Value',x);
-set_param('Ensamblaje2/referencias/Constant3','Value',y);
-set_param('Ensamblaje2/referencias/Constant8','Value',z);
-set_param('Ensamblaje2/referencias/Constant9','Value','1');
+%find_system('Name','robot_model');
+%open_system('robot_model');
+set_param('robot_model/referencias/Constant6','Value',x);
+set_param('robot_model/referencias/Constant3','Value',y);
+set_param('robot_model/referencias/Constant8','Value',z);
+set_param('robot_model/referencias/Constant9','Value','1');
 %set_param(gcs,'SimulationCommand','Start');
 %set_param(gcs,'SimulationCommand','Update')
 
@@ -527,11 +527,11 @@ function pushbutton5_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-%sim('Ensamblaje2');
+%sim('robot_model');
 global simOut 
 
 Time=get(handles.times,'String');
-simOut = sim('Ensamblaje2','ReturnWorkspaceOutputs','on','StopTime',Time)
+simOut = sim('robot_model','ReturnWorkspaceOutputs','on','StopTime',Time)
 
 
 
@@ -547,17 +547,17 @@ function popupmenu3_Callback(hObject, eventdata, handles)
 
 switch get(handles.popupmenu3,'Value')
     case 1
-        set_param('Ensamblaje2/referencias/Constant9','Value','0');
-        set_param('Ensamblaje2/referencias/Constant16','Value','1');
-        set_param('Ensamblaje2/referencias/Constant13','Value','0');
+        set_param('robot_model/referencias/Constant9','Value','0');
+        set_param('robot_model/referencias/Constant16','Value','1');
+        set_param('robot_model/referencias/Constant13','Value','0');
     case 2
-        set_param('Ensamblaje2/referencias/Constant9','Value','0');
-        set_param('Ensamblaje2/referencias/Constant16','Value','0');
-        set_param('Ensamblaje2/referencias/Constant13','Value','1');
+        set_param('robot_model/referencias/Constant9','Value','0');
+        set_param('robot_model/referencias/Constant16','Value','0');
+        set_param('robot_model/referencias/Constant13','Value','1');
     case 3
-        set_param('Ensamblaje2/referencias/Constant9','Value','0');
-        set_param('Ensamblaje2/referencias/Constant16','Value','0');
-        set_param('Ensamblaje2/referencias/Constant13','Value','0');
+        set_param('robot_model/referencias/Constant9','Value','0');
+        set_param('robot_model/referencias/Constant16','Value','0');
+        set_param('robot_model/referencias/Constant13','Value','0');
     otherwise
 end
 

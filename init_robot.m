@@ -1,4 +1,4 @@
-%Parametros del robot
+%robot parameters
 q = [0 0 0 0 0 0 0];
 d = [0.2703 0 0.3644 0 0.3743 0 0.2295]; %metros
 a = [0.069 0 0.069 0 0.01 0 0]; %matros
@@ -12,7 +12,6 @@ end
 
 % create the robot model
 Robot = SerialLink(L);
-
 coder.extrinsic('get_param');
 coder.extrinsic('getVariable');
-mdlWks = get_param('Ensamblaje2','ModelWorkspace');
+mdlWks = get_param('robot_model','ModelWorkspace');
