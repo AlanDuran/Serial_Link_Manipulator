@@ -1,4 +1,4 @@
-# Co-Work-Alan-Loya
+# Serial Link Manipulator (Baxter Robot)
 Modeling, simulation and controller design of a serial manipulator of seven degrees of freedom. Developed in MATLAB and Simulink. 
 
 A state-space model was made based on the specifications of the Baxter industrial robot, considering its direct and differential kinematics using the Denavit-Hartenberg convention to represent each joint of the robot. A model on SolidWorks of the robot was used with Simulink to visualize our algorithm implementation.
